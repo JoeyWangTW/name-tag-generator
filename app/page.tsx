@@ -103,8 +103,8 @@ export default function Home() {
         <div className={`flex ${showInputs ? 'flex-col' : 'flex-row'} h-full`}>
           <div className={`flex flex-col ${showInputs ? 'items-center justify-center w-full' : 'justify-center pr-8 flex-1'}`}>
             <div className="w-full flex flex-col items-center">
-              <div className="flex flex-row items-center gap-4 mb-4 mt-8">
-                <img src="/logo.svg" alt="Logo" width={100} height={100} />
+              <div className="flex flex-row items-center gap-4 mb-4 mt-4">
+                <img src="/logo.svg" alt="Logo" width={80} height={80} />
                 <div className="text-3xl text-gray-500 text-center">西雅圖台灣人職涯小聚</div>
               </div>
               <div className="text-6xl font-bold mb-8 text-center w-full">{name || "Your Name"}</div>
