@@ -88,24 +88,22 @@ export default function Home() {
             onClick={handleHideInputs}
             className="w-full px-4 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
-            Hide Inputs
+            Ready to Print
           </button>
         </div>
       )}
 
       <div
         onClick={() => setShowInputs(true)}
-        className={`mx-auto p-6 border-2 border-gray-300 rounded-xl cursor-pointer flex flex-col justify-between ${showInputs ? 'max-w-md' : 'h-[calc(100vh-120px)] max-w-3xl'
+        className={`mx-auto p-6 border-2 border-gray-300 rounded-xl cursor-pointer flex flex-col justify-between ${showInputs ? 'max-w-md' : 'h-[calc(100vh-120px)] max-w-3xl mx-4 my-8'
           }`}
       >
         <div className="flex-grow flex flex-col items-center justify-center">
-          <div className="flex flex-row items-center mb-8">
-            <img src="/logo.svg" alt="Logo" width={50} height={50} />
-            <div className="text-xl text-gray-500">西雅圖台灣人職涯小聚</div>
-          </div>
-
-          <div className="text-6xl font-bold mb-8">{name || "Your Name"}</div>
-          <div className="text-3xl mb-8">{title && company ? `${title}, ${company}` : "Title, Company"}</div>
+          <img src="/logo.svg" alt="Logo" width={80} height={80} className="mb-2" />
+          <div className="text-3xl text-gray-500 mb-16 text-center">西雅圖台灣人職涯小聚</div>
+          <div className="text-6xl font-bold mb-8 text-center">{name || "Your Name"}</div>
+          <div className="text-3xl mb-2 text-center">{title || "Title"}</div>
+          <div className="text-3xl mb-8 text-center">{company || "Company"}</div>
           {linkedin && (
             <div className="flex justify-center mb-8">
               <QRCodeSVG
