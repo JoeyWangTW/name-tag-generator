@@ -95,35 +95,48 @@ export default function Home() {
 
       <div
         onClick={() => setShowInputs(true)}
-        className={`mx-auto p-6 border-2 border-gray-300 rounded-xl cursor-pointer flex flex-col justify-between ${showInputs ? 'max-w-md' : 'h-[calc(100vh-120px)] max-w-3xl mx-4 my-8'
+        className={`mx-auto my-auto p-6 border-2 border-gray-300 rounded-xl cursor-pointer ${showInputs
+          ? 'max-w-md'
+          : 'w-[calc(100vh-20px)] h-[calc(100vw-40px)] max-w-none mx-auto rotate-90 origin-center fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'
           }`}
       >
-        <div className="flex-grow flex flex-col items-center justify-center">
-          <img src="/logo.svg" alt="Logo" width={80} height={80} className="mb-2" />
-          <div className="text-3xl text-gray-500 mb-16 text-center">西雅圖台灣人職涯小聚</div>
-          <div className="text-6xl font-bold mb-8 text-center">{name || "Your Name"}</div>
-          <div className="text-3xl mb-2 text-center">{title || "Title"}</div>
-          <div className="text-3xl mb-8 text-center">{company || "Company"}</div>
+        <div className={`flex ${showInputs ? 'flex-col' : 'flex-row'} h-full`}>
+          <div className={`flex flex-col ${showInputs ? 'items-center justify-center w-full' : 'justify-center pr-8 flex-1'}`}>
+            <div className="w-full flex flex-col items-center">
+              <div className="flex flex-row items-center gap-4 mb-4">
+                <img src="/logo.svg" alt="Logo" width={60} height={60} />
+                <div className="text-3xl text-gray-500 text-center">西雅圖台灣人職涯小聚</div>
+              </div>
+              <div className="text-6xl font-bold mb-8 text-center w-full">{name || "Your Name"}</div>
+            </div>
+
+            <div className="w-full flex flex-col items-center">
+              <div className="flex flex-row items-center mb-8">
+                <div className="text-3xl text-center">{title || "Title"}, {company || "Company"}</div>
+              </div>
+
+              {hashtags && (
+                <div className="flex flex-wrap justify-center gap-2 mb-8">
+                  {hashtags.split(',').map((tag, index) => (
+                    <span
+                      key={index}
+                      className="px-3 py-1 text-xl bg-gray-100 rounded-full text-gray-700"
+                    >
+                      #{tag.trim()}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+
           {linkedin && (
-            <div className="flex justify-center mb-8">
+            <div className={`flex justify-center items-center ${showInputs ? 'mb-8' : 'ml-auto'}`}>
               <QRCodeSVG
                 value={`https://www.linkedin.com/in/${linkedin}/`}
-                size={150}
+                size={showInputs ? 150 : 200}
                 level="M"
               />
-            </div>
-          )}
-
-          {hashtags && (
-            <div className="flex flex-wrap justify-center gap-2">
-              {hashtags.split(',').map((tag, index) => (
-                <span
-                  key={index}
-                  className="px-3 py-1 text-xl bg-gray-100 rounded-full text-gray-700"
-                >
-                  #{tag.trim()}
-                </span>
-              ))}
             </div>
           )}
         </div>
